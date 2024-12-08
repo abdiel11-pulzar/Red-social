@@ -1,22 +1,22 @@
 <div class="feed-container">
     <!-- Botón para crear nueva publicación -->
     <div class="create-post-btn">
-        <button class="create-btn">+ Crear publicación</button>
+        <button  (click)="crear()" class="create-btn">+ Crear publicación</button>
     </div>
 
     <!-- Publicaciones -->
-    <div class="feed-post">
+    <div *ngFor="let p of userData" class="feed-post">
         <div class="post-header">
-            <img src="https://via.placeholder.com/40" alt="Perfil" class="profile-image">
+            <img src="{{p.fotoUrl}}" alt="Perfil" class="profile-image">
             <div class="post-info">
-                <span class="author">Juan Pérez</span>
+                <span class="author">{{p.nombre}}</span>
                 <span class="post-date">Hace 2 horas</span>
             </div>
         </div>
 
         <!-- Imagen de la publicación -->
         <div class="post-image">
-            <img src="https://via.placeholder.com/600x400" alt="Publicación de Juan" class="image">
+            <img src="{{p.imageUrl}}" class="image">
         </div>
 
         <!-- Descripción de la publicación -->
@@ -27,34 +27,9 @@
                 <button class="share-btn">🔗 Compartir</button>
             </div>
             <p class="likes-count">234 me gusta</p>
-            <p class="post-text">Estoy trabajando en un proyecto increíble para mi clase de Ingeniería de Sistemas. ¡No puedo esperar para mostrarles más pronto!</p>
+            <p class="post-text">{{p.text}}</p>
         </div>
     </div>
 
-    <!-- Otra publicación -->
-    <div class="feed-post">
-        <div class="post-header">
-            <img src="https://via.placeholder.com/40" alt="Perfil" class="profile-image">
-            <div class="post-info">
-                <span class="author">Ana Gómez</span>
-                <span class="post-date">Hace 5 horas</span>
-            </div>
-        </div>
-
-        <!-- Imagen de la publicación -->
-        <div class="post-image">
-            <img src="https://via.placeholder.com/600x400" alt="Publicación de Ana" class="image">
-        </div>
-
-        <!-- Descripción de la publicación -->
-        <div class="post-description">
-            <div class="post-actions">
-                <button class="like-btn">❤️ Me gusta</button>
-                <button class="comment-btn">💬 Comentar</button>
-                <button class="share-btn">🔗 Compartir</button>
-            </div>
-            <p class="likes-count">180 me gusta</p>
-            <p class="post-text">¡Listo para graduarme! Muchas gracias a todos los que me han apoyado durante estos años en la universidad. 🎓 #Graduación</p>
-        </div>
-    </div>
+  
 </div>

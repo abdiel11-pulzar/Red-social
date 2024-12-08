@@ -250,6 +250,15 @@ export class AuthService {
     console.log("cerraste sesión")
 
   }
+  recuperarContrasena(email :string){
+    this.auth.sendPasswordResetEmail({
+email:  email ,
+onComplete:(err) =>{
+  alert("Correo enviado")
+}
+
+    })
+  }
 }
 export interface userDocument {
   nombre: string;

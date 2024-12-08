@@ -31,6 +31,12 @@ recoveryData = {
 };
 onPasswordRecovery() {
   console.log("Password Recovery Data:", this.recoveryData);
+  if(this.recoveryData.email){
+    this.authServide.recuperarContrasena(this.recoveryData.email)
+  }else{
+    alert("Ingresa tu correo")
+  }
+ 
 }
 
 onLogin() {
