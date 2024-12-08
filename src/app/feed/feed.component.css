@@ -1,0 +1,145 @@
+/* Estilos generales */
+.feed-container {
+    width: 50%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Estilo para el botón "Crear publicación" */
+.create-post-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 50%;
+}
+
+.create-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para cada publicación */
+.feed-post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el ratón sobre la publicación */
+.feed-post:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabecera de la publicación (usuario y fecha) */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.post-date {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Imagen de la publicación */
+.post-image .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Descripción y acciones de la publicación */
+.post-description {
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.like-btn, .comment-btn, .share-btn {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.like-btn:hover, .comment-btn:hover, .share-btn:hover {
+    color: #0056b3;
+}
+
+/* Contadores y texto */
+.likes-count {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .feed-container {
+        padding: 10px;
+    }
+
+    .feed-post {
+        padding: 10px;
+    }
+
+    .post-title {
+        font-size: 16px;
+    }
+
+    .post-content {
+        font-size: 13px;
+    }
+
+    .like-btn, .comment-btn, .share-btn {
+        font-size: 14px;
+    }
+}
