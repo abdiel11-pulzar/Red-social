@@ -2,33 +2,49 @@
     <div class="container">
         <div class="form-container">
             <div class="tabs">
-                <button id="login-tab" class="tab-button active">Login</button>
-                <button id="register-tab" class="tab-button">Registro</button>
+                <button id="login-tab"  (click)="LoginClick()" class="tab-button active">Login</button>
+                <button id="register-tab" (click)="CreateAccountClick()" class="tab-button">Registro</button>
             </div>
 
             <!-- Login Form -->
-            <form id="login-form" class="form" (ngSubmit)="onLogin()" #loginForm="ngForm">
-                <input type="email" name="email" [(ngModel)]="loginData.email" placeholder="Correo electrónico" required>
-                <input type="password" name="password" [(ngModel)]="loginData.password" placeholder="Contraseña" required>
-                <button type="submit">Iniciar sesión</button>
-                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-            </form>
+             <div *ngIf="isLoginState()">
+                <form id="login-form" class="form" (ngSubmit)="onLogin()" #loginForm="ngForm">
+                    <input type="email" name="email" [(ngModel)]="loginData.email" placeholder="Correo electrónico" required>
+                    <input type="password" name="password" [(ngModel)]="loginData.password" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar sesión</button>
+                    <a href="#recuperar" (click)="ForgotPassClick()" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </form>
+             </div>
+           
 
             <!-- Register Form -->
-            <form id="register-form" class="form hidden" (ngSubmit)="onRegister()" #registerForm="ngForm">
-                <input type="text" name="first-name" [(ngModel)]="registerData.firstName" placeholder="Nombre" required>
-                <input type="text" name="last-name" [(ngModel)]="registerData.lastName" placeholder="Apellido" required>
-                <select name="career" [(ngModel)]="registerData.career" required>
-                    <option value="" disabled selected>Selecciona tu carrera</option>
-                    <option value="Ingeniería">Ingeniería</option>
-                    <option value="Medicina">Medicina</option>
-                    <option value="Derecho">Derecho</option>
-                    <option value="Psicología">Psicología</option>
-                </select>
-                <input type="email" name="email" [(ngModel)]="registerData.email" placeholder="Correo electrónico" required>
-                <input type="password" name="password" [(ngModel)]="registerData.password" placeholder="Contraseña" required>
-                <button type="submit">Registrarse</button>
-            </form>
+             <div *ngIf="isRegisterState()">
+                <form id="register-form" class="form" (ngSubmit)="onRegister()" #registerForm="ngForm">
+                    <input type="text" name="first-name" [(ngModel)]="registerData.firstName" placeholder="Nombre" required>
+                    <input type="text" name="last-name" [(ngModel)]="registerData.lastName" placeholder="Apellido" required>
+                    <select name="career" [(ngModel)]="registerData.career" required>
+                        <option value="" disabled selected>Selecciona tu carrera</option>
+                        <option value="Ingeniería">Ingeniería</option>
+                        <option value="Medicina">Medicina</option>
+                        <option value="Derecho">Derecho</option>
+                        <option value="Psicología">Psicología</option>
+                    </select>
+                    <input type="email" name="email" [(ngModel)]="registerData.email" placeholder="Correo electrónico" required>
+                    <input type="password" name="password" [(ngModel)]="registerData.password" placeholder="Contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+             </div>
+            
+
+            <!-- Password Recovery Form -->
+             <div *ngIf="isForgotPasswordState() ">
+                <form id="recovery-form" class="form" (ngSubmit)="onPasswordRecovery()" #recoveryForm="ngForm">
+                    <input type="email" name="email" [(ngModel)]="recoveryData.email" placeholder="Correo electrónico" required>
+                    <button type="submit">Recuperar Contraseña</button>
+                    <a href="#"  (click)="LoginClick()" class="cancel-recovery" >Cancelar</a>
+                </form>
+             </div>
+            
         </div>
     </div>
 
