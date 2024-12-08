@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   state = LoginCompState.LOGIN;
+  constructor(private authServide : AuthService){
+
+  }
   loginData = {
     email: '',
     password: ''
-};
+  };
 
 registerData = {
     firstName: '',
@@ -31,10 +35,22 @@ onPasswordRecovery() {
 
 onLogin() {
     console.log("Login Data:", this.loginData);
+    if(this.loginData.email && this.loginData.password){
+      this.authServide.login(this.loginData.email, this.loginData.password)
+    }else{
+      alert("Completa todos los campos")
+    }
 }
 
 onRegister() {
     console.log("Register Data:", this.registerData);
+    if(this.registerData.firstName && this.registerData.lastName && this.registerData.career
+      && this.registerData.email && this.registerData.password
+    ){
+      this.authServide.registro(this.registerData.email,this.registerData.password,this.registerData.firstName,this.registerData.lastName,this.registerData.career)
+    }else{
+      alert("Completa todos los campos")
+    }
 }
 //state
 
