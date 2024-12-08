@@ -24,10 +24,13 @@
                     <input type="text" name="last-name" [(ngModel)]="registerData.lastName" placeholder="Apellido" required>
                     <select name="career" [(ngModel)]="registerData.career" required>
                         <option value="" disabled selected>Selecciona tu carrera</option>
-                        <option value="Ingeniería">Ingeniería</option>
-                        <option value="Medicina">Medicina</option>
-                        <option value="Derecho">Derecho</option>
-                        <option value="Psicología">Psicología</option>
+    <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+    <option value="Ingeniería Agroindustrial">Ingeniería Agroindustrial</option>
+    <option value="Ingeniería Ambiental">Ingeniería Ambiental</option>
+    <option value="Ingeniería Civil">Ingeniería Civil</option>
+    <option value="Administración de Empresas">Administración de Empresas</option>
+    <option value="Contabilidad">Contabilidad</option>
+    <option value="Educación Primaria Intercultural">Educación Primaria Intercultural</option>
                     </select>
                     <input type="email" name="email" [(ngModel)]="registerData.email" placeholder="Correo electrónico" required>
                     <input type="password" name="password" [(ngModel)]="registerData.password" placeholder="Contraseña" required>
